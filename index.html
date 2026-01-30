@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>For Leigh 💗</title>
+<title>For My baby baboo Leigh 💗</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
 
@@ -191,7 +191,9 @@ for (let i = 0; i < 40; i++) {
 /* Show message */
 document.getElementById("willow").onclick = () => {
     document.getElementById("messageBox").style.display = "block";
-    document.getElementById("willow").style.display = "none";
+    const willow = document.getElementById("willow");
+    willow.style.opacity = "0";
+    setTimeout(() => willow.style.display = "none", 600);
 };
 
 /* Yes */
@@ -210,6 +212,7 @@ noBtn.addEventListener("mouseover", () => {
 
 </body>
 </html>
+
 
 
 
