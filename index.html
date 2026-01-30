@@ -34,28 +34,24 @@ body {
 .lily {
     position: absolute;
     top: 0;
-    width: 130px;
+    width: 80px;
     height: 100%;
-    background-repeat: repeat-y;
-    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 28px;
+    opacity: 0.9;
     animation: sway 4s ease-in-out infinite;
 }
+
+.left { left: 10px; }
+.right { right: 10px; }
 
 @keyframes sway {
     0% { transform: rotate(0deg); }
     50% { transform: rotate(2deg); }
     100% { transform: rotate(0deg); }
-}
-
-.left {
-    left: 0;
-    background-image: url('https://i.imgur.com/4vM1O5W.png');
-}
-
-.right {
-    right: 0;
-    background-image: url('https://i.imgur.com/4vM1O5W.png');
-    transform: scaleX(-1);
 }
 
 /* 🌳 Willow Tree */
@@ -147,8 +143,13 @@ button {
 </audio>
 
 <!-- 🌿 Lilies -->
-<div class="lily left"></div>
-<div class="lily right"></div>
+<div class="lily left">
+    🤍🌿🤍🌿🤍🌿🤍🌿
+</div>
+
+<div class="lily right">
+    🤍🌿🤍🌿🤍🌿🤍🌿
+</div>
 
 <!-- 🌳 Willow -->
 <div id="willow">🌳</div>
