@@ -63,7 +63,7 @@ body {
     width: 360px;
     max-width: 80vw;
     cursor: pointer;
-    z-index: 2;
+    z-index: 1;
 
     filter: drop-shadow(0 0 35px rgba(120, 200, 255, 0.6));
     animation: willowFloat 6s ease-in-out infinite;
@@ -87,7 +87,7 @@ body {
     border-radius: 25px;
     text-align: center;
     box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-    z-index: 15; /* 👈 ADD THIS */
+    z-index: 20; /* 👈 ADD THIS */
 }
 
 
@@ -122,6 +122,9 @@ button {
     background: rgba(255,245,250,0.97);
     text-align: center;
     padding-top: 90px;
+    z-index: 30; /* 👈 important */
+    position: fixed; /* 👈 covers entire screen properly */
+
 }
 
 #result h1 {
@@ -191,14 +194,13 @@ for (let i = 0; i < 40; i++) {
 /* Show message */
 document.getElementById("willow").onclick = () => {
     document.getElementById("messageBox").style.display = "block";
-    const willow = document.getElementById("willow");
-    willow.style.opacity = "0";
-    setTimeout(() => willow.style.display = "none", 600);
+    document.getElementById("willow").style.display = "none";
 };
 
 /* Yes */
 document.getElementById("yes").onclick = () => {
     document.getElementById("result").style.display = "block";
+    document.getElementById("willow").style.display = "none";
 };
 
 /* No dodges cursor */
@@ -212,6 +214,7 @@ noBtn.addEventListener("mouseover", () => {
 
 </body>
 </html>
+
 
 
 
