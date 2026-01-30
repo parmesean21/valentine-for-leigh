@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Leigh 💗</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(to bottom, #fff0f7, #f0faf5);
+    overflow: hidden;
+    font-family: 'Playfair Display', serif;
+}
+
+/* 🌸 Sakura petals */
+.sakura {
+    position: absolute;
+    top: -50px;
+    animation: fall linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes fall {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(110vh) rotate(360deg); }
+}
+
+/* 🌿 Lily of the Valley */
+.lily {
+    position: absolute;
+    top: 0;
+    width: 130px;
+    height: 100%;
+    background-repeat: repeat-y;
+    background-size: contain;
+    animation: sway 4s ease-in-out infinite;
+}
+
+@keyframes sway {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(2deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.left {
+    left: 0;
+    background-image: url('https://i.imgur.com/4vM1O5W.png');
+}
+
+.right {
+    right: 0;
+    background-image: url('https://i.imgur.com/4vM1O5W.png');
+    transform: scaleX(-1);
+}
+
+/* 🌳 Willow Tree */
+#willow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 170px;
+    cursor: pointer;
+    animation: glow 3s infinite;
+}
+
+@keyframes glow {
+    0% { filter: drop-shadow(0 0 5px #a7d7c5); }
+    50% { filter: drop-shadow(0 0 20px #7fc4a5); }
+    100% { filter: drop-shadow(0 0 5px #a7d7c5); }
+}
+
+/* 💌 Question Box */
+#messageBox {
+    display: none;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255,255,255,0.9);
+    padding: 25px 40px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+h2 { color: #4c7a67; }
+
+button {
+    padding: 12px 30px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px;
+}
+
+#yes {
+    background: #f4a6c1;
+    color: white;
+}
+
+#yes:hover { background: #e28eb0; }
+
+#no {
+    background: #ccc;
+    position: relative;
+}
+
+/* 💐 YES RESULT */
+#result {
+    display: none;
+    position: absolute;
+    inset: 0;
+    background: rgba(255,245,250,0.97);
+    text-align: center;
+    padding-top: 90px;
+}
+
+#result h1 {
+    font-size: 44px;
+    color: #d46a8c;
+}
+
+.bouquet {
+    font-size: 95px;
+    animation: pop 1s ease;
+}
+
+@keyframes pop {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎹 Background Music -->
+<audio autoplay loop>
+    <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_7b0a6c97b1.mp3" type="audio/mpeg">
+</audio>
+
+<!-- 🌿 Lilies -->
+<div class="lily left"></div>
+<div class="lily right"></div>
+
+<!-- 🌳 Willow -->
+<div id="willow">🌳</div>
+
+<!-- 💌 Question -->
+<div id="messageBox">
+    <h2>Will you be my Valentine, Leigh?</h2>
+    <button id="yes">Yes 💗</button>
+    <button id="no">No</button>
+</div>
+
+<!-- 💐 Result -->
+<div id="result">
+    <div class="bouquet">💐🌹🌿</div>
+    <h1>YAY, I LOVE YOU BABY</h1>
+</div>
+
+<script>
+/* Sakura petals */
+for (let i = 0; i < 40; i++) {
+    const petal = document.createElement("div");
+    petal.className = "sakura";
+    petal.textContent = "🌸";
+    petal.style.left = Math.random() * 100 + "vw";
+    petal.style.fontSize = 14 + Math.random() * 20 + "px";
+    petal.style.animationDuration = 5 + Math.random() * 6 + "s";
+    document.body.appendChild(petal);
+}
+
+/* Show message */
+document.getElementById("willow").onclick = () => {
+    document.getElementById("messageBox").style.display = "block";
+};
+
+/* Yes */
+document.getElementById("yes").onclick = () => {
+    document.getElementById("result").style.display = "block";
+};
+
+/* No dodges cursor */
+const noBtn = document.getElementById("no");
+noBtn.addEventListener("mouseover", () => {
+    const x = Math.random() * 200 - 100;
+    const y = Math.random() * 100 - 50;
+    noBtn.style.transform = `translate(${x}px, ${y}px)`;
+});
+</script>
+
+</body>
+</html>
