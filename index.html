@@ -57,21 +57,24 @@ body {
 /* 🌳 Willow Tree */
 #willow {
     position: absolute;
-    top: 48%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 360px;
+    max-width: 80vw;
     cursor: pointer;
-    filter: drop-shadow(0 0 25px rgba(120,200,160,0.7));
-    animation: willowGlow 4s ease-in-out infinite;
+    z-index: 5;
+
+    filter: drop-shadow(0 0 35px rgba(120, 200, 255, 0.6));
+    animation: willowFloat 6s ease-in-out infinite;
 }
 
-@keyframes willowGlow {
-    0% { filter: drop-shadow(0 0 10px rgba(120,200,160,0.4)); }
-    50% { filter: drop-shadow(0 0 30px rgba(120,200,160,0.8)); }
-    100% { filter: drop-shadow(0 0 10px rgba(120,200,160,0.4)); }
+@keyframes willowFloat {
+    0% { transform: translate(-50%, -50%) translateY(0); }
+    50% { transform: translate(-50%, -50%) translateY(-10px); }
+    100% { transform: translate(-50%, -50%) translateY(0); }
 }
-
-
+    
 /* 💌 Question Box */
 #messageBox {
     display: none;
@@ -153,24 +156,11 @@ button {
 </div>
 
 <!-- 🌳 Willow -->
-<div id="willow">
-  <svg width="260" height="360" viewBox="0 0 260 360">
-    <!-- Trunk -->
-    <rect x="120" y="220" width="20" height="100" rx="8" fill="#6b4f3f"/>
-
-    <!-- Willow leaves -->
-    <path d="M40 80 C60 260, 100 300, 130 330" stroke="#6fae7b" stroke-width="10" fill="none"/>
-    <path d="M70 70 C90 260, 120 300, 150 330" stroke="#7bcf8e" stroke-width="12" fill="none"/>
-    <path d="M100 60 C120 260, 140 300, 170 330" stroke="#6fae7b" stroke-width="10" fill="none"/>
-    <path d="M130 60 C150 260, 170 300, 200 330" stroke="#7bcf8e" stroke-width="12" fill="none"/>
-    <path d="M160 70 C180 260, 200 300, 230 330" stroke="#6fae7b" stroke-width="10" fill="none"/>
-
-    <!-- Crown -->
-    <circle cx="130" cy="80" r="50" fill="#8fd19e"/>
-  </svg>
-</div>
-
-
+<img 
+  id="willow"
+  src="willow.png"
+  alt="Willow Tree"
+/>
 <!-- 💌 Question -->
 <div id="messageBox">
     <h2>Will you be my Valentine, Leigh?</h2>
@@ -217,4 +207,5 @@ noBtn.addEventListener("mouseover", () => {
 
 </body>
 </html>
+
 
