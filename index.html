@@ -7,6 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
 
 <style>
+    
 * { box-sizing: border-box; }
 
 body {
@@ -141,6 +142,39 @@ button {
     0% { transform: scale(0); }
     100% { transform: scale(1); }
 }
+    /* 📸 Polaroid photos */
+.polaroids {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.polaroid {
+    position: absolute;
+    background: white;
+    padding: 10px 10px 25px;
+    width: 160px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    transform: rotate(var(--angle));
+    animation: fadeIn 1.5s ease forwards;
+}
+
+.polaroid img {
+    width: 100%;
+    display: block;
+}
+
+.left1 { left: 6%; top: 20%; --angle: -8deg; }
+.left2 { left: 10%; top: 50%; --angle: 5deg; }
+
+.right1 { right: 6%; top: 22%; --angle: 6deg; }
+.right2 { right: 10%; top: 52%; --angle: -6deg; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8) rotate(var(--angle)); }
+    to { opacity: 1; transform: scale(1) rotate(var(--angle)); }
+}
+    
 </style>
 </head>
 
@@ -175,6 +209,22 @@ button {
 
 <!-- 💐 Result -->
 <div id="result">
+    <div class="polaroids">
+        <div class="polaroid left1">
+            <img src="pic1.jpg">
+        </div>
+        <div class="polaroid left2">
+            <img src="pic2.jpg">
+        </div>
+
+        <div class="polaroid right1">
+            <img src="pic3.jpg">
+        </div>
+        <div class="polaroid right2">
+            <img src="pic4.jpg">
+        </div>
+    </div>
+
     <div class="bouquet">💐🌹🌿</div>
     <h1>YAY, I LOVE YOU BABY</h1>
 </div>
@@ -214,6 +264,7 @@ noBtn.addEventListener("mouseover", () => {
 
 </body>
 </html>
+
 
 
 
